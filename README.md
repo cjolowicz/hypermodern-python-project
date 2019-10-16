@@ -1,3 +1,3 @@
-![nox](https://github.com/cjolowicz/hypermodern-python-project/workflows/.github/workflows/ci.yml/badge.svg)
+![tests](https://github.com/cjolowicz/hypermodern-python-project/workflows/tests/badge.svg)
 
 # hypermodern-python-project
