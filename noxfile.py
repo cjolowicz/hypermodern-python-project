@@ -1,7 +1,7 @@
 import nox
 
 
-@nox.session(python="3.8")
+@nox.session(python=["3.8", "3.7"])
 def tests(session):
     """Run the test suite."""
     env = {"VIRTUAL_ENV": session.virtualenv.location}
