@@ -10,7 +10,9 @@ jobs:
     - uses: dschep/install-poetry-action@v1.2
       with:
         preview: true
-    - run: nox
+    - run: |
+        nox
+        nox -e report
     - uses: codecov/codecov-action@v1.0.2
       with:
         token: ${{secrets.CODECOV_TOKEN}}

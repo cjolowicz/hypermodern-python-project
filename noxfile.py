@@ -26,3 +26,10 @@ def tests(session):
     env = {"VIRTUAL_ENV": session.virtualenv.location}
     session.run("poetry", "install", external=True, env=env)
     session.run("pytest", "--cov", *session.posargs)
+
+
+@nox.session(python="3.8")
+def report(session):
+    """Generate a coverage report."""
+    session.install("coverage")
+    session.run("coverage", "xml")
