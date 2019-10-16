@@ -4,7 +4,7 @@ import nox
 @nox.session(python=["3.8", "3.7"])
 def lint(session):
     """Lint using flake8."""
-    session.install("flake8", "flake8-bugbear", "flake8-import-order")
+    session.install("flake8", "flake8-bugbear")
     session.run("flake8", "src", "tests", "noxfile.py")
 
 
