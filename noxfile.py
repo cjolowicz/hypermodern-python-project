@@ -36,7 +36,8 @@ def tests(session):
 
 
 @nox.session(python="3.7")
-def report(session):
-    """Generate a coverage report."""
-    session.install("coverage")
+def coverage(session):
+    """Upload coverage data."""
+    session.install("coverage", "codecov")
     session.run("coverage", "xml")
+    session.run("codecov", *session.posargs)
