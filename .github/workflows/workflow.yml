@@ -19,7 +19,5 @@ jobs:
         file: ./coverage.xml
     - run: poetry build
     - if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_TOKEN }}
+      run: |
+        poetry publish --username=__token__ --password=${{ secrets.PYPI_TOKEN }}
