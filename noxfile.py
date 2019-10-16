@@ -15,7 +15,8 @@ def black(session):
 @nox.session(python="3.7")
 def lint(session):
     """Lint using flake8."""
-    session.install("flake8", "flake8-bugbear", "flake8-import-order")
+    session.install("black", "flake8", "flake8-bugbear", "flake8-import-order")
+    session.run("black", "--check", *locations)
     session.run("flake8", *locations)
 
 
