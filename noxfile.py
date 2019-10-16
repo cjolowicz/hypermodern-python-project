@@ -1,11 +1,22 @@
 import nox
 
 
+nox.options.sessions = "lint", "tests"
+locations = "src", "tests", "noxfile.py"
+
+
+@nox.session(python="3.8")
+def black(session):
+    """Run black code formatter."""
+    session.install("black")
+    session.run("black", *locations)
+
+
 @nox.session(python=["3.8", "3.7"])
 def lint(session):
     """Lint using flake8."""
     session.install("flake8", "flake8-bugbear")
-    session.run("flake8", "src", "tests", "noxfile.py")
+    session.run("flake8", *locations)
 
 
 @nox.session(python=["3.8", "3.7"])
