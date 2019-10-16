@@ -1,7 +1,7 @@
 import nox
 
 
-nox.options.sessions = "lint", "tests"
+nox.options.sessions = "lint", "pytype", "tests"
 locations = "src", "tests", "noxfile.py"
 
 
@@ -17,6 +17,13 @@ def lint(session):
     """Lint using flake8."""
     session.install("flake8", "flake8-bugbear", "flake8-import-order", "flake8-black")
     session.run("flake8", *locations)
+
+
+@nox.session(python="3.7")
+def pytype(session):
+    """Run the static type checker."""
+    session.install("pytype")
+    session.run("pytype", "-d", "import-error", *locations)
 
 
 @nox.session(python=["3.8", "3.7"])
