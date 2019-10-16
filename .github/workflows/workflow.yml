@@ -10,13 +10,10 @@ jobs:
     - uses: dschep/install-poetry-action@v1.2
       with:
         preview: true
-    - run: |
-        nox
-        nox -e report
-    - uses: codecov/codecov-action@v1.0.2
-      with:
-        token: ${{secrets.CODECOV_TOKEN}}
-        file: ./coverage.xml
+    - run: nox
+    - run: nox -e coverage
+      env:
+        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
     - run: poetry build
     - if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       run: |
