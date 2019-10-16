@@ -12,7 +12,7 @@ def black(session):
     session.run("black", *locations)
 
 
-@nox.session(python=["3.8", "3.7"])
+@nox.session(python="3.7")
 def lint(session):
     """Lint using flake8."""
     session.install("flake8", "flake8-bugbear")
