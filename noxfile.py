@@ -28,7 +28,7 @@ def tests(session):
     session.run("pytest", "--cov", *session.posargs)
 
 
-@nox.session(python="3.8")
+@nox.session(python="3.7")
 def report(session):
     """Generate a coverage report."""
     session.install("coverage")
