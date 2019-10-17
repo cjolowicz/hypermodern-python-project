@@ -23,7 +23,7 @@ def lint(session):
 def pytype(session):
     """Run the static type checker."""
     session.install("pytype")
-    session.run("pytype", "-d", "import-error", *locations)
+    session.run("pytype", "--config=pytype.cfg", *locations)
 
 
 @nox.session(python=["3.8", "3.7"])
