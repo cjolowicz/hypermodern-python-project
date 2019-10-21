@@ -1,4 +1,4 @@
-import nox
+import nox  # pytype: disable=import-error
 
 
 nox.options.sessions = "lint", "pytype", "tests"
@@ -23,7 +23,7 @@ def lint(session):
 def pytype(session):
     """Run the static type checker."""
     session.install("pytype")
-    session.run("pytype", "--config=pytype.cfg", *locations)
+    session.run("pytype", *locations)
 
 
 @nox.session(python=["3.8", "3.7"])

@@ -1,5 +1,5 @@
 import click.testing
-import pytest
+import pytest  # pytype: disable=import-error
 
 from hypermodern_python_project import console
 
