@@ -4,3 +4,4 @@ __pycache__/
 /.nox/
 /.pytype/
 /src/*.egg-info/
+/docs/_build/
