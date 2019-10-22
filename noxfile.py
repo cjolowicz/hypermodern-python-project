@@ -4,6 +4,13 @@ import nox
 locations = "src", "tests", "noxfile.py"
 
 
+@nox.session(python="3.8")
+def black(session):
+    """Run black code formatter."""
+    session.install("black")
+    session.run("black", *locations)
+
+
 @nox.session(python="3.7")
 def lint(session):
     """Lint using flake8."""
