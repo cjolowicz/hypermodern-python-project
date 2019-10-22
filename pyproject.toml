@@ -10,6 +10,7 @@ python = "^3.7"
 click = "^7.0"
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.2.1"
 
 [tool.poetry.scripts]
 hypermodern-python-project = "hypermodern_python_project.console:main"
