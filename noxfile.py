@@ -40,3 +40,10 @@ def coverage(session):
     session.install("coverage", "codecov")
     session.run("coverage", "xml")
     session.run("codecov", *session.posargs)
+
+
+@nox.session(python="3.7")
+def docs(session):
+    """Build the documentation."""
+    session.install("sphinx", "sphinx-rtd-theme")
+    session.run("sphinx-build", "docs", "docs/_build")
